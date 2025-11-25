@@ -1,0 +1,9 @@
+在.env.example中 DATA_ENCRYPTION_KEY=  和 JWT_SECRET=  各填写一个密钥
+密钥生成建议：
+
+DATA_ENCRYPTION_KEY：使用 32 字节随机值（例如 openssl rand -hex 32）。
+JWT_SECRET：同样使用高熵随机值（如 openssl rand -hex 32）。
+
+注意事项：
+这两个值如果未设置，容器可能启动失败或产生不安全默认值。
+更改 DATA_ENCRYPTION_KEY 会导致已加密的数据无法解密；更改 JWT_SECRET 会使所有已有令牌失效。进行密钥轮换需有相应流程。
